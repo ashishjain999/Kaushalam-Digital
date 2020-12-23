@@ -1,0 +1,250 @@
+/*Footer Section*/
+html,body{height: 100%;}
+.container{min-height: 100%;}
+.footer
+{
+    position: relative;
+    margin-top: -50px;
+    height: 50px;
+    clear:both;
+    padding-top:50px;
+
+}
+.footer-wrap{margin: 0 auto; max-width: 1170px;}
+.foot-text-left{text-align: left;display: inline-block;}
+.foot-text-right{text-align: right;display: inline-block;}
+/*End of footer Section*/
+
+/** Step wizard */
+.wizard {
+    margin: 0 auto;
+    background: #fff;
+}
+
+.wizard .nav-tabs {
+    position: relative;
+    margin: 40px auto;
+    margin-bottom: 0;
+    border-bottom-color: #e0e0e0;
+}
+
+.wizard > div.wizard-inner {
+    position: relative;
+}
+
+.connecting-line {
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: 1;
+}
+
+.wizard .nav-tabs > li.active > a, .wizard .nav-tabs > li.active > a:hover, .wizard .nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    border: 0;
+    border-bottom-color: transparent;
+}
+
+span.round-tab {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+}
+span.round-tab i{
+    color:#555555;
+}
+.wizard li.active span.round-tab {
+    background: #fff;
+    border: 2px solid #5bc0de;
+
+}
+.wizard li.active span.round-tab i{
+    color: #5bc0de;
+}
+
+span.round-tab:hover {
+    color: #333;
+    border: 2px solid #333;
+}
+
+.wizard .nav-tabs > li {
+    width: 14.2%;
+}
+
+.wizard li:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 0;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 5px solid transparent;
+    border-bottom-color: #5bc0de;
+    transition: 0.1s ease-in-out;
+}
+
+.wizard li.active:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 1;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 10px solid transparent;
+    border-bottom-color: #5bc0de;
+}
+
+.wizard .nav-tabs > li a {
+    width: 70px;
+    height: 70px;
+    margin: 20px auto;
+    border-radius: 100%;
+    padding: 0;
+}
+
+.wizard .nav-tabs > li a:hover {
+    background: transparent;
+}
+
+.wizard .tab-pane {
+    position: relative;
+    /*    padding-top: 50px;*/
+}
+
+.wizard h3 {
+    margin-top: 0;
+}
+.wizard-btn {
+    margin-top: 10px;
+}
+
+@media( max-width : 585px ) {
+
+    .wizard {
+        width: 90%;
+        height: auto !important;
+    }
+
+    span.round-tab {
+        font-size: 16px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard .nav-tabs > li a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard li.active:after {
+        content: " ";
+        position: absolute;
+        left: 35%;
+    }
+}
+/** End */
+
+/** New UI */
+.box {
+    background: #ffffff;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: none;
+}
+.box-header {
+    color: #444;
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+.box-body {
+    padding: 20px 20px 20px 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.box-header .box-title {
+    font-size: 15px;
+    line-height: normal;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0;
+}
+.bar {
+    height: 18px;
+    background: green;
+}
+/** End */
+
+/** fixed header */
+.video-clip-header-fixed {
+    width: 100%;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.video-clip-header-fixed .header-scroll-links {
+    background: #f8f8f8;
+    display: block;
+    box-shadow: 0 8px 10px #e4e4e4;
+}
+.header-scroll-links ul {
+    font-size: 13px;
+    font-weight: normal;
+    color: #333;
+    text-align: left;
+    padding: 7px;
+    margin: 0;
+}
+.header-scroll-links ul li {
+    display: inline-block;
+    margin: 2px 15px;
+}
+.header-scroll-links ul li a:link {
+    color: #999;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.header-scroll-links ul li a.scroll-link.active {
+    color: #666;
+}
+
+.btn-attribute-remove {
+    margin-top: 10px;
+}
+.btn-contact {
+    margin-top: 30px;
+}
+.Workaround
+   input[data-readonly] {
+       pointer-events: none;
+   }
+
+.company-delete {
+    background: transparent;
+    border: none;
+}
