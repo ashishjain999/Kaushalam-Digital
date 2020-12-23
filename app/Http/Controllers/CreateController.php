@@ -84,8 +84,6 @@ class CreateController extends Controller
         $db = DB::table('posts')->where('id', $id)->update($data);
 
         return redirect('/edit/' . $id . '/' . $sefUrl, 201);
-
-        return view('posts.edit');
     }
 
     /**
