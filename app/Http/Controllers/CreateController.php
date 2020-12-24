@@ -30,6 +30,11 @@ class CreateController extends Controller
      */
     public function store(Request $request)
     {
+        $check = request()->validate([
+            'post_title' => 'required',
+            'post_body'  => 'required',
+        ]);
+
         $sefUrl = str_replace(' ', '-', strtolower($request[ 'post_title' ]));
 
         $data = [
@@ -72,6 +77,11 @@ class CreateController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $check = request()->validate([
+            'post_title' => 'required',
+            'post_body'  => 'required',
+        ]);
+
         $sefUrl = str_replace(' ', '-', strtolower($request[ 'post_title' ]));
 
         $data = [
