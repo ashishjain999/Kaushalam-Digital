@@ -4,6 +4,16 @@
 @section('content')
     <div class="row">
         <div class="col-sm-12">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    New blog created successfully
+                </div>
+            @endif
+            @if(session('danger'))
+                <div class="alert alert-danger">
+                    Blog deleted successfully
+                </div>
+            @endif
             @foreach($posts as $post)
                 <h3>Blog: {{$post->id}}</h3>
                 <h3>Title: {{$post->title}}</h3>

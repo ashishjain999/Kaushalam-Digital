@@ -14,6 +14,11 @@
                     </ul>
                 </div>
             @endif
+            @if(session('success'))
+                <div class="alert alert-success">
+                    New Blog Updated Successfully
+                </div>
+            @endif
             <form enctype="multipart/form-data" class="form-post" method="post"
                   action="/update/{{$post->id}}">
                 @csrf

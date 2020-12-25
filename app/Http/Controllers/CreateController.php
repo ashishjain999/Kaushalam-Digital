@@ -47,7 +47,7 @@ class CreateController extends Controller
 
         $db = DB::table('posts')->insertGetId($data);
 
-        return redirect('/', 201);
+        return redirect('/', 201)->with('success', 'Success');
     }
 
     /**
@@ -93,7 +93,7 @@ class CreateController extends Controller
 
         $db = DB::table('posts')->where('id', $id)->update($data);
 
-        return redirect('/edit/' . $id . '/' . $sefUrl, 201);
+        return redirect('/edit/' . $id . '/' . $sefUrl, 201)->with('success', 'Success');
     }
 
     /**
@@ -106,7 +106,7 @@ class CreateController extends Controller
     {
         $delete = DB::table('posts')->where('id', '=', $id)->delete();
 
-        return redirect('/', 201);
+        return redirect('/', 201)->with('danger', 'Danger');
     }
 
 }
