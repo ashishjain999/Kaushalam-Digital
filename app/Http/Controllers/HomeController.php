@@ -1,16 +1,30 @@
 <?php namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use DB;
+use App\Repositories\Contract\BlogInterface;
 
 /**
  * Class HomeController
  *
  * @package App\Http\Controllers
- * @author  Ashish Jain
+ * @author  Ashish.Jain
  */
 class HomeController extends Controller
 {
+
+    /**
+     * @var BlogInterface
+     */
+    public $blog;
+
+    /**
+     * HomeController constructor.
+     *
+     * @param BlogInterface $blog
+     */
+    public function __construct(BlogInterface $blog)
+    {
+        $this->blog = $blog;
+    }
 
     /**
      * Select values from posts table
@@ -19,10 +33,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')
-                   ->select('id', 'title', 'sef_url', 'text', 'created_at', 'updated_at')
-                   ->orderBy('id', 'DESC')
-                   ->get();
+        $posts = $this->blog->all();
 
         return view('posts.home', ['posts' => $posts]);
     }

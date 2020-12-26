@@ -1,16 +1,31 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use App\Repositories\Contract\BlogInterface;
 
 /**
  * Class CreateController
  *
  * @package App\Http\Controllers
- * @author  Ashish Jain
+ * @author  Ashish.Jain
  */
 class CreateController extends Controller
 {
+
+    /**
+     * @var BlogInterface
+     */
+    public $blog;
+
+    /**
+     * CreateController constructor.
+     *
+     * @param BlogInterface $blog
+     */
+    public function __construct(BlogInterface $blog)
+    {
+        $this->blog = $blog;
+    }
 
     /**
      * Main page to show an article
@@ -45,7 +60,7 @@ class CreateController extends Controller
             'updated_at' => date('Y-m-d H:i:s'),
         ];
 
-        $db = DB::table('posts')->insertGetId($data);
+        $db = $this->blog->save($data);
 
         return redirect('/', 201)->with('success', 'Success');
     }
@@ -59,11 +74,7 @@ class CreateController extends Controller
      */
     public function edit($id, $sefUrl)
     {
-        $post = DB::table('posts')
-                  ->select('id', 'title', 'sef_url', 'text', 'created_at', 'updated_at')
-                  ->where('sef_url', $sefUrl)
-                  ->where('id', $id)
-                  ->first();
+        $post = $this->blog->edit($id, $sefUrl);
 
         return view('posts.edit', ['post' => $post]);
     }
@@ -91,7 +102,7 @@ class CreateController extends Controller
             'updated_at' => date('Y-m-d H:i:s'),
         ];
 
-        $db = DB::table('posts')->where('id', $id)->update($data);
+        $db = $this->blog->update($id, $data);
 
         return redirect('/edit/' . $id . '/' . $sefUrl, 201)->with('success', 'Success');
     }
@@ -104,7 +115,8 @@ class CreateController extends Controller
      */
     public function delete($id)
     {
-        $delete = DB::table('posts')->where('id', '=', $id)->delete();
+        //$delete = DB::table('posts')->where('id', '=', $id)->delete();
+        $delete = $this->blog->delete($id);
 
         return redirect('/', 201)->with('danger', 'Danger');
     }
