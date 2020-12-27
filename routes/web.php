@@ -17,6 +17,6 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/create', 'CreateController@index');
 Route::post('/create', 'CreateController@store');
 Route::get('/edit/{id}/{sef_url}', 'CreateController@edit');
-Route::post('/update/{id}', 'CreateController@update');
-Route::get('/delete/{id}', 'CreateController@delete');
+Route::put('/update/{id}', 'CreateController@update');
+Route::delete('/delete/{id}', 'CreateController@delete');
 
