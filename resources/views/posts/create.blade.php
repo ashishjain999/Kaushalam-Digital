@@ -18,8 +18,8 @@
                 @csrf
                 <div class="form-group">
                     <label for="postTitle">Post Title</label>
-                    <input type="text" class="form-control" id="postTitle" placeholder="Post Title"
-                           name="post_title" required>
+                    <input type="text" class="form-control" id="post_title" placeholder="Post Title"
+                           name="post_title" required value="{{old('post_title')}}">
                 </div>
                 <div class="form-group">
                     <label for="post_body">What's on your mind?</label>

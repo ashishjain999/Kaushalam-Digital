@@ -18,6 +18,8 @@ class BlogRepository implements BlogInterface
     var $table = 'posts';
 
     /**
+     * Retrieve all item from the table.
+     *
      * @return mixed
      */
     public function all()
@@ -68,6 +70,8 @@ class BlogRepository implements BlogInterface
     }
 
     /**
+     * Delete an item from the model by key.
+     *
      * @param int $id
      * @return mixed|void
      */

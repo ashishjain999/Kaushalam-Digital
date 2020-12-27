@@ -34,7 +34,7 @@ interface BlogInterface
     public function edit($id, $sefUrl);
 
     /**
-     * Update an item from the model.
+     * To update an article.
      *
      * @param array   $data
      * @param integer $id

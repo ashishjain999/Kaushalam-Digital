@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Repositories\Contract\BlogInterface;
+use App\Http\Requests\PostRequest;
 
 /**
  * Class CreateController
@@ -30,7 +31,7 @@ class CreateController extends Controller
     /**
      * Main page to show an article
      *
-     * @return \Illuminate\Contracts\Foundation\Application
+     * @return void
      */
     public function index()
     {
@@ -40,15 +41,15 @@ class CreateController extends Controller
     /**
      * To save the data into the database
      *
-     * @param Request $request
+     * @param PostRequest $request
      * @return array
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        $check = request()->validate([
-            'post_title' => 'required',
-            'post_body'  => 'required',
-        ]);
+//        $check = request()->validate([
+//            'post_title' => 'required',
+//            'post_body'  => 'required',
+//        ]);
 
         $sefUrl = str_replace(' ', '-', strtolower($request[ 'post_title' ]));
 
@@ -70,7 +71,7 @@ class CreateController extends Controller
      *
      * @param $id
      * @param $sefUrl
-     * @return \Illuminate\Contracts\Foundation\Application|
+     * @return void
      */
     public function edit($id, $sefUrl)
     {
@@ -82,17 +83,12 @@ class CreateController extends Controller
     /**
      * To update the article
      *
-     * @param Request $request
-     * @param         $id
+     * @param PostRequest $request
+     * @param             $id
      * @return array
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        $check = request()->validate([
-            'post_title' => 'required',
-            'post_body'  => 'required',
-        ]);
-
         $sefUrl = str_replace(' ', '-', strtolower($request[ 'post_title' ]));
 
         $data = [
@@ -115,7 +111,6 @@ class CreateController extends Controller
      */
     public function delete($id)
     {
-        //$delete = DB::table('posts')->where('id', '=', $id)->delete();
         $delete = $this->blog->delete($id);
 
         return redirect('/', 201)->with('danger', 'Danger');
